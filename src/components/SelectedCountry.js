@@ -20,8 +20,6 @@ const SelectedCountry = () => {
     subregion,
   } = selectedCountry;
 
-  // const currencyArray = Object.values(currencies);
-
   async function fetchData() {
     const response = await fetch(
       `https://restcountries.com/v3.1/name/${info.name}`
