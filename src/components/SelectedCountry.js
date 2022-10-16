@@ -75,10 +75,10 @@ const SelectedCountry = () => {
                 </p>
                 <p>
                   <span>Currencies : </span>
-                  {}
+                  {currencies[Object.keys(currencies)].name}
                 </p>
                 <p>
-                  <span>Languages:</span> {}
+                  <span>Languages:</span> {Object.values(languages).join(", ")}
                 </p>
                 <p>
                   <span>Area:</span> {area} Km<sup>2</sup>
