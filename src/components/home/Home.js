@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Country from "./Country";
+import SearchBar from "../searchBar/SearchBar";
+import Country from "../country/Country";
+import "./home.css";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [allCountries, setAllCountries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -22,35 +25,30 @@ const Home = () => {
       const countryName = country.name.common.toLowerCase();
       return countryName.startsWith(searchText);
     });
-
     setCountries(matchedCountries);
   }
 
   return (
-    <main>
-      <section className="header">
-        <h1> Search Country You Are Interested About . . . !! </h1>
-        <form>
-          <input
-            onChange={handleChange}
-            type="text"
-            placeholder="Search for a country "
-          />
-        </form>
-      </section>
-
+    <>
       {loading ? (
-        <h1 className="loader">Loading data ...</h1>
+        <h1 className={!darkMode ? "loading light-mode" : "loading"}>
+          Getting Data ...
+        </h1>
       ) : (
-        <section className="body">
-          <div className="body-wrapper">
+        <section
+          className={!darkMode ? "main-section light-mode" : "main-section"}
+        >
+          <div className="search-bar-wrapper">
+            <SearchBar modeData={darkMode} onChangeData={handleChange} />
+          </div>
+          <div className="countries-wrapper">
             {countries.map((country, i) => (
-              <Country key={i} country={country} />
+              <Country modeData={darkMode} key={i} country={country} />
             ))}
           </div>
         </section>
       )}
-    </main>
+    </>
   );
 };
 

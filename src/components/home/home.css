@@ -1,0 +1,53 @@
+.loading {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--dark-bg);
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  padding-top: 40vh;
+}
+
+.main-section {
+  width: 100%;
+  height: fit-content;
+  background-color: var(--dark-bg);
+  padding-top: 50px;
+  padding-bottom: 85px;
+  position: relative;
+  top: 10vh;
+  transition: 0.5s;
+}
+
+.search-bar-wrapper {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.countries-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+}
+
+@media screen and (max-width: 1150px) {
+  .countries-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 860px) {
+  .countries-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .countries-wrapper {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+}
