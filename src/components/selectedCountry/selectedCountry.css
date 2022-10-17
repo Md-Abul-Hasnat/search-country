@@ -8,6 +8,7 @@
   align-items: center;
   background-color: var(--dark-bg);
   color: white;
+  transition: 0.5s;
 }
 
 .selected-country-wrapper {

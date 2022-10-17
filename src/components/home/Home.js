@@ -3,11 +3,12 @@ import SearchBar from "../searchBar/SearchBar";
 import Country from "../country/Country";
 import "./home.css";
 
-const Home = () => {
+const Home = (props) => {
+  const darkMode = props.modeData;
+
   const [countries, setCountries] = useState([]);
   const [allCountries, setAllCountries] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")

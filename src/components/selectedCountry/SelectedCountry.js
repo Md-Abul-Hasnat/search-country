@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 import "./selectedCountry.css";
 
-const SelectedCountry = () => {
+const SelectedCountry = (props) => {
+  const darkMode = props.modeData;
   const info = useParams();
 
   const [selectedCountry, setSelectedCountry] = useState({});
@@ -36,8 +40,13 @@ const SelectedCountry = () => {
 
   return (
     <>
-      <section className="selected-country">
+      <section
+        className={
+          !darkMode ? "selected-country light-mode" : "selected-country"
+        }
+      >
         <Link className="back-btn" to={"/"}>
+          <FontAwesomeIcon icon={faArrowLeft} className="icon" />
           Back
         </Link>
 
