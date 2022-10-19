@@ -45,68 +45,70 @@ const SelectedCountry = (props) => {
           !darkMode ? "selected-country light-mode" : "selected-country"
         }
       >
-        <Link className="back-btn" to={"/"}>
-          <FontAwesomeIcon icon={faArrowLeft} className="icon" />
-          Back
-        </Link>
-
         {loading ? (
           <h1 className="loading"> Loading Data... </h1>
         ) : (
-          <div className="selected-country-wrapper">
-            <div className="img">
-              <img src={flags?.svg} alt="flag" />
-            </div>
-            <div className="selected-details">
-              <div className="country-details">
-                <div className="details-left">
-                  <h3>{name.common}</h3>
-                  <p>
-                    <span>Official Name :</span> {name.official}
-                  </p>
-                  <p>
-                    <span>Population :</span>
-                    {(population / 1000000).toFixed(2)} Million
-                  </p>
-                  <p>
-                    <span>Region :</span> {region}
-                  </p>
-                  <p>
-                    <span>Subregion :</span> {subregion}
-                  </p>
-                  <p>
-                    <span>Capital :</span> {capital}
-                  </p>
-                </div>
-                <div className="details-right">
-                  <p>
-                    <span>Timezones :</span> {timezones[0]}
-                  </p>
-                  <p>
-                    <span>Currencies : </span>
-                    {currencies[Object.keys(currencies)]?.name}
-                  </p>
-                  <p>
-                    <span>Languages:</span>{" "}
-                    {Object.values(languages).join(", ")}
-                  </p>
-                  <p>
-                    <span>Area:</span> {area} Km<sup>2</sup>
-                  </p>
-                </div>
+          <>
+            <Link className="back-btn" to={"/"}>
+              <FontAwesomeIcon icon={faArrowLeft} className="icon" />
+              Back
+            </Link>
+
+            <div className="selected-country-wrapper">
+              <div className="img">
+                <img src={flags?.svg} alt="flag" />
               </div>
-              {borders ? (
-                <div className="borders">
-                  <p>Border Countries :</p>
-                  {borders.map((border, i) => (
-                    <small key={i}> {border} </small>
-                  ))}
+              <div className="selected-details">
+                <div className="country-details">
+                  <div className="details-left">
+                    <h3>{name.common}</h3>
+                    <p>
+                      <span>Official Name :</span> {name.official}
+                    </p>
+                    <p>
+                      <span>Population :</span>
+                      {(population / 1000000).toFixed(2)} Million
+                    </p>
+                    <p>
+                      <span>Region :</span> {region}
+                    </p>
+                    <p>
+                      <span>Subregion :</span> {subregion}
+                    </p>
+                    <p>
+                      <span>Capital :</span> {capital}
+                    </p>
+                  </div>
+                  <div className="details-right">
+                    <p>
+                      <span>Timezones :</span> {timezones[0]}
+                    </p>
+                    <p>
+                      <span>Currencies : </span>
+                      {currencies[Object.keys(currencies)]?.name}
+                    </p>
+                    <p>
+                      <span>Languages:</span>{" "}
+                      {Object.values(languages).join(", ")}
+                    </p>
+                    <p>
+                      <span>Area:</span> {area} Km<sup>2</sup>
+                    </p>
+                  </div>
                 </div>
-              ) : (
-                ""
-              )}
+                {borders ? (
+                  <div className="borders">
+                    <p>Border Countries :</p>
+                    {borders.map((border, i) => (
+                      <small key={i}> {border} </small>
+                    ))}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
-          </div>
+          </>
         )}
       </section>
     </>
