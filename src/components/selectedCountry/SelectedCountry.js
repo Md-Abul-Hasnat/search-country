@@ -45,10 +45,10 @@ const SelectedCountry = (props) => {
           !darkMode ? "selected-country light-mode" : "selected-country"
         }
       >
-        <Link className="back-btn" to={"/"}>
+        <a className="back-btn" href={"/"}>
           <FontAwesomeIcon icon={faArrowLeft} className="icon" />
           Back
-        </Link>
+        </a>
 
         {loading ? (
           <h1> Loading Data... </h1>
@@ -84,7 +84,7 @@ const SelectedCountry = (props) => {
                   </p>
                   <p>
                     <span>Currencies : </span>
-                    {currencies[Object.keys(currencies)].name}
+                    {currencies[Object.keys(currencies)]?.name}
                   </p>
                   <p>
                     <span>Languages:</span>{" "}

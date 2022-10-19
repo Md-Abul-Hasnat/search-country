@@ -20,6 +20,10 @@
   box-shadow: 0px 3px 6px gray;
 }
 
+.header.light-mode a {
+  color: black;
+}
+
 .main-section.light-mode {
   background-color: var(--white-bg-light);
   color: black;

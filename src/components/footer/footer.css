@@ -1,0 +1,35 @@
+.footer {
+  position: relative;
+  margin-top: 40px;
+}
+
+.footer > p {
+  width: 100%;
+  position: absolute;
+  bottom: -65px;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--dark-bg-light);
+  color: white;
+  transition: 0.4s;
+}
+
+.footer.light-mode > p {
+  background-color: var(--white-bg-light);
+  color: black;
+  box-shadow: 0px 5px 15px gray;
+}
+
+@media screen and (max-width: 600px) {
+  .footer > p {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .footer > p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    padding: 20px 5px;
+  }
+}

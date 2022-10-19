@@ -8,6 +8,9 @@
   z-index: 3;
   transition: 0.5s;
 }
+a {
+  color: white;
+}
 
 .header-wrapper {
   width: 90%;

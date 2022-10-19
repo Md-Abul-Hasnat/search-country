@@ -8,6 +8,10 @@ const SearchBar = (props) => {
     props.onChangeData(e);
   }
 
+  function handleRegionDataChange(e) {
+    props.onRegionChange(e);
+  }
+
   return (
     <section className={!darkMode ? "search-bar light-mode" : "search-bar"}>
       <div className="search-left">
@@ -21,12 +25,18 @@ const SearchBar = (props) => {
       </div>
       <div className="search-right">
         <label htmlFor="select">Filter by region :</label>
-        <select className="filter" name="select" id="select">
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Ocenia">Ocenia</option>
+        <select
+          onChange={handleRegionDataChange}
+          className="filter"
+          name="select"
+          id="select"
+        >
+          <option value="all">All</option>
+          <option value="africa">Africa</option>
+          <option value="america">America</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
         </select>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +9,9 @@ const Header = (props) => {
   return (
     <header className={!darkMode ? " header light-mode" : "header"}>
       <div className="header-wrapper">
-        <h2> Where in the world?</h2>
+        <a href="/">
+          <h2> Where in the world?</h2>
+        </a>
         <div onClick={() => setDarkMode(!darkMode)} className="dark-mode">
           <h3>
             {darkMode ? (

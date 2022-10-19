@@ -9,6 +9,7 @@ const Home = (props) => {
   const [countries, setCountries] = useState([]);
   const [allCountries, setAllCountries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [region, setRegion] = useState("all");
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -29,6 +30,23 @@ const Home = (props) => {
     setCountries(matchedCountries);
   }
 
+  function handleRegionChange(e) {
+    setRegion(e.target.value);
+  }
+
+  const url =
+    region === "all"
+      ? "https://restcountries.com/v3.1/all"
+      : `https://restcountries.com/v3.1/region/${region}`;
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setCountries(data);
+      });
+  }, [region]);
+
   return (
     <>
       {loading ? (
@@ -40,7 +58,11 @@ const Home = (props) => {
           className={!darkMode ? "main-section light-mode" : "main-section"}
         >
           <div className="search-bar-wrapper">
-            <SearchBar modeData={darkMode} onChangeData={handleChange} />
+            <SearchBar
+              onRegionChange={handleRegionChange}
+              modeData={darkMode}
+              onChangeData={handleChange}
+            />
           </div>
           <div className="countries-wrapper">
             {countries.map((country, i) => (
