@@ -45,13 +45,13 @@ const SelectedCountry = (props) => {
           !darkMode ? "selected-country light-mode" : "selected-country"
         }
       >
-        <a className="back-btn" href={"/"}>
+        <Link className="back-btn" to={"/"}>
           <FontAwesomeIcon icon={faArrowLeft} className="icon" />
           Back
-        </a>
+        </Link>
 
         {loading ? (
-          <h1> Loading Data... </h1>
+          <h1 className="loading"> Loading Data... </h1>
         ) : (
           <div className="selected-country-wrapper">
             <div className="img">

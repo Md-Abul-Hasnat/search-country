@@ -12,6 +12,18 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.loading {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--dark-bg);
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  padding-top: 45vh;
 }
 
 .header.light-mode {
@@ -63,6 +75,10 @@
 
 .selected-country.light-mode {
   background-color: var(--white-bg);
+  color: black;
+}
+.selected-country.light-mode .loading {
+  background-color: var(--white-bg-light);
   color: black;
 }
 .selected-country.light-mode .back-btn {

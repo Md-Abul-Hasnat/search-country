@@ -2,6 +2,7 @@ import React from "react";
 import "./header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const { darkMode, setDarkMode } = props.modeData;
@@ -9,9 +10,9 @@ const Header = (props) => {
   return (
     <header className={!darkMode ? " header light-mode" : "header"}>
       <div className="header-wrapper">
-        <a href="/">
+        <Link to="/">
           <h2> Where in the world?</h2>
-        </a>
+        </Link>
         <div onClick={() => setDarkMode(!darkMode)} className="dark-mode">
           <h3>
             {darkMode ? (
